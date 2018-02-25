@@ -1,0 +1,7 @@
+FROM alpine:3.2
+
+LABEL maintainer="minju<route666@live.cn>"
+
+ADD greeter-srv /greeter-srv
+
+ENTRYPOINT [ "/greeter-srv" ]

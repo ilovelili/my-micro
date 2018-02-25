@@ -1,0 +1,26 @@
+--- 
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata: 
+  name: greeter
+  namespace: default
+spec: 
+  replicas: 1
+  template: 
+    metadata: 
+      labels: 
+        app: greeter-srv
+    spec: 
+      containers: 
+        - 
+          command: 
+            - /greeter-srv
+            - "--server_address=0.0.0.0:8080"
+            - "--broker_address=0.0.0.0:10001"
+          image: "ilovelili/microkubesrv:firsttry"
+          imagePullPolicy: Always
+          name: greeter
+          ports: 
+            - 
+              containerPort: 8080
+              name: greeter-port
